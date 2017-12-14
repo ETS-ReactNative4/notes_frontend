@@ -44,7 +44,7 @@ class NotesMenu extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    notes: state.notes
+    notes: state
   };
 };
 

@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { push } from 'react-router-redux';
 
 export const GET_ALL_NOTES = 'GET_ALL_NOTES';
 export const ADD_NOTE = 'ADD_NOTE';
@@ -16,12 +17,26 @@ export const getAllNotes = () => {
   };
 };
 
+// export const addNote = (noteData, dispatch) => {
+//   const promise = axios.post(`${HEROKU_URL}/notes`, noteData);
+//   return(dispatch) => {
+//     dispatch({
+//       type: ADD_NOTE,
+//       payload: promise,
+//     }).then((response) => {
+//       dispatch(push('/notes'));
+//     });
+//   };
+// };
 export const addNote = (noteData) => {
-  const promise = axios.post(`${HEROKU_URL}/notes`, noteData);
+  const promise = axios.post(`${HEROKU_URL}/notes`, noteData)
+  .then((response) => {
+    this.props.history.push('/notes');
+  });
   return {
     type: ADD_NOTE,
-    payload: promise
-  };
+    payload: promise,
+  }
 };
 
 export const getNote = (id) => {

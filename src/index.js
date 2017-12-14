@@ -4,24 +4,27 @@ import './index.css';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 import { Provider } from 'react-redux';
-import { createStore, applyMiddleware } from 'redux';
+import { createStore, combineReducers, applyMiddleware } from 'redux';
 import ReduxPromise from 'redux-promise';
-import reducers from './reducers';
-import NoteDetail from './components/NoteDetail';
 import {
   BrowserRouter as Router,
   Route
 } from 'react-router-dom';
+import {ConnectedRouter, routerReducer, routerMiddleware, push } from 'react-router-redux';
+import createHistory from 'history/createBrowserHistory';
+import rootReducer from './reducers';
+import NoteDetail from './components/NoteDetail';
 import NewNote from './components/newNote';
 import NotesMenu from './components/notesMenu';
-import './App.css';
 
-
-const createStoreWithMiddleware = applyMiddleware(ReduxPromise)(createStore);
+const history = createHistory();
+const rmware = routerMiddleware(history);
+const reducer = combineReducers({ rootReducer, router: routerReducer });
+const store = createStore(reducer, applyMiddleware(ReduxPromise, rmware));
 
 ReactDOM.render(
-  <Provider store={createStoreWithMiddleware(reducers, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())}>
-    <Router>
+  <Provider store={store}>
+    <Router history={history}>
       <div>
         <Route exact path="/" component={App} />
         <Route exact path="/notes" component={NotesMenu} />
@@ -29,5 +32,7 @@ ReactDOM.render(
         <Route path="/notes/:id" component={NoteDetail} />
       </div>
     </Router>
-  </Provider>, document.getElementById('root'));
+  </Provider>,
+  document.getElementById('root')
+);
 registerServiceWorker();
