@@ -19,7 +19,7 @@ class NoteDetail extends Component {
           <p>{this.props.selectedNote.content}</p>
           <p>{`Created on: ${this.props.selectedNote.created_at}`}</p>
           <HomeButton />
-          <Button onClick={() => {
+          <Button bsStyle="danger" onClick={() => {
             console.log(this.props)
             this.props.deleteNote(this.props.selectedNote._id);
             }}>Delete</Button>
