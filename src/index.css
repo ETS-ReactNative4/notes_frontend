@@ -12,16 +12,3 @@ body {
   height: 100px;
   align-items: center;
 }
-
-.notesMenu {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width: 1000px;
-}
-
-.newNBT {
-  display: flex;
-  justify-content: center;
-  padding-top: 10px;
-}
