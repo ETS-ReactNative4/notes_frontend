@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { addNote } from '../actions';
-import Button from 'react-bootstrap/lib/Button';
 import HomeButton from './homeButton';
 import ButtonToolbar from 'react-bootstrap/lib/ButtonToolbar';
 import Panel from 'react-bootstrap/lib/Panel';
@@ -46,7 +45,7 @@ class NewNote extends Component{
             Title:
             <input type='text'
               className="newNote"
-              placeholder="New Note"
+              placeholder="New note title"
               style={{width: 400}}
               value={this.state.title}
               onChange={this.handleTitle} />
@@ -59,8 +58,12 @@ class NewNote extends Component{
               placeholder="Input your note here"
               value={this.state.content}
               onChange={this.handleContent} />
-            <ButtonToolbar className="newNBT">
-              <Button bsStyle="success" onClick={this.addNote} onSubmit={'/notes'}>Save Note</Button>
+            <ButtonToolbar className="button-toolbar">
+              <button className="save-button" bsStyle="success" 
+                onClick={this.addNote} 
+                onSubmit={'/notes'}>
+                Save Note
+              </button>
               <HomeButton />
             </ButtonToolbar>
           </Panel>

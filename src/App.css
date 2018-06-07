@@ -4,14 +4,51 @@
   align-items: center;
 }
 
-.notesMenu {
+button {
+  padding: 15px;
+  margin: 10px;
+  border-radius: 10px;
+  font-size: 150%;
+  color: white;
+}
+
+p {
+  font-size: 110%;
+}
+
+.notes-menu {
   display: flex;
   flex-direction: column;
   justify-content: center;
   width: 1000px;
 }
 
-.newNBT {
+.home-header {
+  color: midnightblue;
+  padding: 30px;
+}
+
+.header-title {
+  padding-bottom: 20px;
+}
+
+.home-button {
+  background-color: teal;
+}
+
+.add-button {
+  background-color: limegreen;
+}
+
+.save-button {
+  background-color: limegreen;
+}
+
+.delete-button {
+  background-color: firebrick;
+}
+
+.button-toolbar {
   display: flex;
   justify-content: center;
   padding-top: 10px;

@@ -5,8 +5,8 @@ import { getAllNotes } from '../actions';
 import { Link } from 'react-router-dom';
 import ListGroup from 'react-bootstrap/lib/ListGroup';
 import ListGroupItem from 'react-bootstrap/lib/ListGroupItem';
-import Button from 'react-bootstrap/lib/Button';
 import Panel from 'react-bootstrap/lib/Panel';
+import HomeHeader from './homeHeader';
 
 class NotesMenu extends Component {
   componentDidMount() {
@@ -16,10 +16,8 @@ class NotesMenu extends Component {
   render() {
     return (
       <div className="notes">
-        <div className="header">
-          <h2>My Notes</h2>
-        </div>
-        <div className="notesMenu">
+        <HomeHeader />
+        <div className="notes-menu">
           <Panel>
             <ListGroup>
               {this.props.notes.map((note, i) => {
@@ -34,9 +32,6 @@ class NotesMenu extends Component {
             </ListGroup>
           </Panel>
         </div>
-        <Link to={`notes/new-note`}>
-          <Button bsStyle="info">Add New Note</Button>
-        </Link>
       </div>
     );
   }
