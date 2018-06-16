@@ -5,10 +5,10 @@
 }
 
 button {
-  padding: 15px;
+  padding: 10px;
   margin: 10px;
   border-radius: 10px;
-  font-size: 150%;
+  font-size: 125%;
   color: white;
 }
 
@@ -16,16 +16,36 @@ p {
   font-size: 110%;
 }
 
+.new-note-header {
+  padding: 30px;
+}
+
+.new-title {
+  padding-bottom: 20px;
+}
+
+.content {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+}
+
 .notes-menu {
   display: flex;
   flex-direction: column;
   justify-content: center;
   width: 1000px;
+  padding-top: 250px;
 }
 
 .home-header {
-  color: midnightblue;
+  justify-content: center;
+  background-color: whitesmoke;
+  width: 1000px;
   padding: 30px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
 }
 
 .header-title {

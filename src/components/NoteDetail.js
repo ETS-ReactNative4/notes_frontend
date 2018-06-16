@@ -19,11 +19,18 @@ class NoteDetail extends Component {
           <h2>{this.props.selectedNote.title}</h2>
           <p>{this.props.selectedNote.content}</p>
           <p>{`Created on: ${this.props.selectedNote.created_at}`}</p>
+          <p>{new Intl.DateTimeFormat('en-US', {
+              weekday: 'long',
+              year: 'numeric',
+              month: 'long',
+              day: '2-digit'
+            }).format((this.props.selectedNote.created_at.toString()))}
+          </p>
         </Panel>
         <div className="button-toolbar">
           <ButtonToolbar>
             <HomeButton />
-            <button className="delete-button" bsStyle="danger" 
+            <button className="delete-button"
               onClick={() => {
               console.log(this.props)
               this.props.deleteNote(this.props.selectedNote._id);

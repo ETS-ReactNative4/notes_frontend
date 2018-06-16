@@ -37,37 +37,43 @@ class NewNote extends Component{
 
   render() {
     return(
-      <div className="newNoteForm">
-        <form>
-          <Panel>
-            <h4>New Note</h4>
-            <p>Add new note here</p>
-            Title:
-            <input type='text'
-              className="newNote"
-              placeholder="New note title"
-              style={{width: 400}}
-              value={this.state.title}
-              onChange={this.handleTitle} />
-            <br/>
-            Note Content:
-            <br/>
-            <input type='text'
-              className="newNote"
-              style={{width: 400, height: 200}}
-              placeholder="Input your note here"
-              value={this.state.content}
-              onChange={this.handleContent} />
-            <ButtonToolbar className="button-toolbar">
-              <button className="save-button" bsStyle="success" 
-                onClick={this.addNote} 
-                onSubmit={'/notes'}>
-                Save Note
-              </button>
-              <HomeButton />
-            </ButtonToolbar>
-          </Panel>
-        </form>
+      <div>
+        <div className="new-note-header">
+          <h4>New Note</h4>
+          <p>Add new note here</p>
+        </div>
+        <div className="newNote">
+          <form>
+            <Panel>
+              <div className="new-title">
+                <p>Title:</p>
+                <input type='text'
+                  placeholder="New note title"
+                  style={{width: 400}}
+                  value={this.state.title}
+                  onChange={this.handleTitle} />
+              </div>
+              <p>Note Content:</p>
+              <div className="content">
+                <input type='text'
+                  style={{width: 400, height: 200}}
+                  placeholder="Input your note here"
+                  value={this.state.content}
+                  onChange={this.handleContent} />
+              </div>
+            </Panel>
+          </form>
+        </div>
+        <div className="button-toolbar">
+          <ButtonToolbar>
+            <button className="save-button" 
+              onClick={this.addNote} 
+              onSubmit={'/notes'}>
+              Save Note
+            </button>
+            <HomeButton />
+          </ButtonToolbar>
+        </div>
       </div>
     );
   }
