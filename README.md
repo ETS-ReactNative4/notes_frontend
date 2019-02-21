@@ -1,5 +1,5 @@
 Welcome to my note-taking app!
-  This is a simple app using React, Redux, Node and Explress with a Mongo database.
+  This is a simple app using React, Redux, Node and Express with a Mongo database.
   Here is a working example: https://mynotesproject.herokuapp.com/
 
 
